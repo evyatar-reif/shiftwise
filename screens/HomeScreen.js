@@ -5,19 +5,17 @@ import { Modal } from 'react-native';
 
 import config from '../config.json';
 
+import Header from '../components/Header';
 import AddJob from './AddJob';
 import AddShift from './AddShift';
 import WaveTop from '../assets/WaveTop';
-
-const screenIndex = 0;
+import ShiftsDisplay from '../components/ShiftsDisplay';
 
 const HomeScreen = ({ navigation }) => {
+    const [jobIndex, setJobIndex] = useState(2);
     const [openJobModal, setOpenJobModal] = useState(false);
     const [openShiftModal, setOpenShiftModal] = useState(false);
     const { allJobs } = useSelector((state) => state.jobs);
-    const { allShifts } = useSelector((state) => state.shifts);
-
-    console.log(allShifts);
 
     return (
         <View
@@ -25,18 +23,14 @@ const HomeScreen = ({ navigation }) => {
                 height: '100%',
                 width: '100%',
             }}>
-            <WaveTop color={config.colors[0]} />
-            <Pressable
-                style={styles.btn}
-                onPressIn={() => setOpenJobModal(true)}>
-                <Text style={styles.btnTxt}>Add Job</Text>
-            </Pressable>
+            <Header
+                job={allJobs[jobIndex]}
+                jobIndex={jobIndex}
+                maxValue={allJobs.length - 1}
+                setJobIndex={setJobIndex}
+            />
 
-            <Pressable
-                style={styles.btn}
-                onPressIn={() => setOpenShiftModal(true)}>
-                <Text style={styles.btnTxt}>Add Shift</Text>
-            </Pressable>
+            <ShiftsDisplay job={allJobs[jobIndex]} />
 
             <Modal
                 transparent={true}

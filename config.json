@@ -12,7 +12,7 @@
     "#0065D0"
 ],
  "currencyArray" : [
-    { "label": "$ USD", "value": "$ USD" },
-    { "label": "₪ NIS", "value": "₪ NIS" }
+    { "label": "$ USD", "value": "$" },
+    { "label": "₪ NIS", "value": "₪" }
 ]
 }

@@ -18,8 +18,13 @@ function isShiftValid(shift) {
     return true;
 }
 
+function getShiftsOfJob(jobId, allShifts) {
+    const result = allShifts.filter((s) => s.job.id == jobId);
+    return result;
+}
+
 function calcLengthAndPay(shift) {
     return { pay: 0, length: 2 };
 }
 
-export { isShiftValid, calcLengthAndPay };
+export { isShiftValid, calcLengthAndPay, getShiftsOfJob };
