@@ -1,23 +1,29 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-import CheckMark from '../assets/Icons/CheckMark';
+import config from '../config.json';
 
-const JobLine = ({ job, isSelected }) => {
+import CheckMark from '../assets/Icons/CheckMark';
+import ColorIcon from '../components/ColorIcon';
+
+const JobLine = ({ job, isSelected, selectedStyle }) => {
     return (
-        <View style={styles.container}>
-            <View style={styles.iconContainer}>
-                <View style={{ width: 25 }}>{isSelected && <CheckMark />}</View>
-                <View
-                    style={{
-                        backgroundColor: job.color,
-                        height: 25,
-                        width: 25,
-                        borderRadius: 25,
-                        marginRight: 15,
-                    }}></View>
+        <View
+            style={{
+                ...styles.container,
+                backgroundColor: isSelected ? '#72777A' : 'transparent',
+            }}>
+            <View style={styles.container}>
+                <ColorIcon
+                    color={config.colors[job.color]}
+                    size={35}
+                />
+                <Text style={styles.txt}>{job.name}</Text>
             </View>
-            <Text style={styles.txt}>{job.name}</Text>
+            <View style={styles.container}>
+                <Text style={styles.txt}>{job.pay}/h </Text>
+                <Text style={styles.txt}>{job.currency}</Text>
+            </View>
         </View>
     );
 };
@@ -26,24 +32,14 @@ export default JobLine;
 
 const styles = StyleSheet.create({
     container: {
+        justifyContent: 'space-between',
+        alignContent: 'center',
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'flex-start',
-        paddingRight: 10,
-        paddingLeft: 10,
-        alignItems: 'center',
-        borderBottomWidth: 1,
-        borderTopWidth: 1,
-        width: 200,
-    },
-    iconContainer: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
+        borderRadius: 15,
+        padding: 5,
     },
     txt: {
-        fontWeight: 'bold',
-        fontSize: 20,
+        fontSize: 24,
     },
 });

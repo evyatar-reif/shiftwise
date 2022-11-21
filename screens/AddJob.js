@@ -14,25 +14,7 @@ import { addJobToState } from '../redux/jobReducer';
 import ColorIcon from '../components/ColorIcon';
 import DropDownMenu from '../components/DropDownMenu';
 
-const colorArray = [
-    // '#090A0A',
-    '#979C9E',
-    '#DB9119',
-    '#D3180C',
-    '#1F3F39',
-    '#6E4369',
-    '#DBB42C',
-    '#84B6AE',
-    '#8D4947',
-    '#183B5D',
-    '#0065D0',
-];
-
-const currencyArray = [
-    // should be in settings
-    { label: '$ USD', value: '$ USD' },
-    { label: '₪ NIS', value: '₪ NIS' },
-];
+import config from '../config.json';
 
 const DEFAULT_ENTRY = {
     name: '',
@@ -45,8 +27,9 @@ const AddJob = ({ closeModal }) => {
     const [entry, setEntry] = useState(DEFAULT_ENTRY);
     const dispatch = useDispatch();
 
-    const colorIconArray = colorArray.map((c, i) => (
+    const colorIconArray = config.colors.map((c, i) => (
         <Pressable
+            key={i}
             onPressIn={() =>
                 setEntry((prev) => {
                     return { ...entry, color: i };
@@ -56,7 +39,7 @@ const AddJob = ({ closeModal }) => {
                 key={i}
                 color={c}
                 size={50}
-                borderWidth={c == colorArray[entry.color] ? 3 : 1}
+                borderWidth={c == config.colors[entry.color] ? 3 : 1}
             />
         </Pressable>
     ));
@@ -130,7 +113,7 @@ const AddJob = ({ closeModal }) => {
                                 return { ...prev, currency: v };
                             })
                         }
-                        items={currencyArray}
+                        items={config.currencyArray}
                         selectedStyle={styles.dropdown}
                         itemStyle={styles.dropdownItem}
                         placeholder='Currency'

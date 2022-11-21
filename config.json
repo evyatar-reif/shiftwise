@@ -1,0 +1,18 @@
+{
+    "colors": [
+    "#979C9E",
+    "#DB9119",
+    "#D3180C",
+    "#1F3F39",
+    "#6E4369",
+    "#DBB42C",
+    "#84B6AE",
+    "#8D4947",
+    "#183B5D",
+    "#0065D0"
+],
+ "currencyArray" : [
+    { "label": "$ USD", "value": "$ USD" },
+    { "label": "₪ NIS", "value": "₪ NIS" }
+]
+}
