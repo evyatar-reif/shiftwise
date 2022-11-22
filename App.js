@@ -1,8 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
+import 'react-native-gesture-handler';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+
 import { StyleSheet, View, Text } from 'react-native';
 import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import { Provider } from 'react-redux';
 import { store, persistor } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -11,7 +13,7 @@ import HomeScreen from './screens/HomeScreen';
 import AddShift from './screens/AddShift';
 import AddJob from './screens/AddJob';
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 export default function App() {
     return (
@@ -23,6 +25,7 @@ export default function App() {
                     <Stack.Navigator
                         screenOptions={{
                             headerShown: false,
+                            cardStyle: { backgroundColor: 'white' },
                         }}>
                         <Stack.Screen
                             name='Home'
@@ -38,7 +41,7 @@ export default function App() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: 'black',
         alignItems: 'center',
         justifyContent: 'center',
     },

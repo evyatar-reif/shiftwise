@@ -10,16 +10,12 @@ import WaveTop from '../assets/WaveTop';
 
 const Header = ({ job, jobIndex, setJobIndex, maxValue }) => {
     function swipeLeft() {
-        if (jobIndex == maxValue) {
-            console.log('Cannot go right');
-        } else {
+        if (jobIndex != maxValue) {
             setJobIndex((prev) => prev + 1);
         }
     }
     function swipeRight() {
-        if (jobIndex == 0) {
-            console.log('Cannot go left');
-        } else {
+        if (jobIndex != 0) {
             setJobIndex((prev) => prev - 1);
         }
     }
@@ -51,7 +47,6 @@ const styles = StyleSheet.create({
         top: '35%',
         width: '100%',
         display: 'flex',
-        // flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
     },

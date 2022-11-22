@@ -14,5 +14,11 @@
  "currencyArray" : [
     { "label": "$ USD", "value": "$" },
     { "label": "₪ NIS", "value": "₪" }
+],
+"weekColors" : [
+    
+],
+"monthNames" : [
+    "JAN","FEB","MAR", "APR","MAY","JUN", "JUL", "AUG","SEP", "OCT","NOV","DEC"
 ]
 }

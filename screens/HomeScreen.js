@@ -30,7 +30,9 @@ const HomeScreen = ({ navigation }) => {
                 setJobIndex={setJobIndex}
             />
 
-            <ShiftsDisplay job={allJobs[jobIndex]} />
+            <View style={styles.bodyContainer}>
+                <ShiftsDisplay job={allJobs[jobIndex]} />
+            </View>
 
             <Modal
                 transparent={true}
@@ -74,16 +76,9 @@ const HomeScreen = ({ navigation }) => {
 export default HomeScreen;
 
 const styles = StyleSheet.create({
-    btn: {
+    bodyContainer: {
         display: 'flex',
-        justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#454ADE',
-        borderRadius: 15,
-        height: 50,
-        width: 125,
-    },
-    btnTxt: {
-        color: '#ffffff',
+        width: '100%',
     },
 });
