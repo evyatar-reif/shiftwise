@@ -23,6 +23,8 @@ const DEFAULT_ENTRY = {
     currency: null,
 };
 
+// Test message
+
 const AddJob = ({ closeModal }) => {
     const [entry, setEntry] = useState(DEFAULT_ENTRY);
     const dispatch = useDispatch();
