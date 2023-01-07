@@ -31,6 +31,8 @@ export default ShiftLine;
 
 const styles = StyleSheet.create({
     mainContainer: {
+        marginTop: 5,
+        marginBottom: 5,
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',

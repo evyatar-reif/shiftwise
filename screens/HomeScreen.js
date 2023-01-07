@@ -29,8 +29,15 @@ const HomeScreen = ({ navigation }) => {
                 maxValue={allJobs.length - 1}
                 setJobIndex={setJobIndex}
             />
-
             <View style={styles.bodyContainer}>
+                <View style={styles.btnContainer}>
+                    <Pressable
+                        style={styles.btnAddShift}
+                        onPressIn={() => setOpenShiftModal(true)}>
+                        <Text style={styles.btnAddTxt}>Add Shift</Text>
+                    </Pressable>
+                </View>
+
                 <ShiftsDisplay job={allJobs[jobIndex]} />
             </View>
 
@@ -44,6 +51,8 @@ const HomeScreen = ({ navigation }) => {
                     }}>
                     <Pressable
                         style={{
+                            backgroundColor: '#161616',
+                            opacity: 0.5,
                             height: '30%',
                         }}
                         onPressIn={() => {
@@ -61,7 +70,7 @@ const HomeScreen = ({ navigation }) => {
                         )}
                         {openShiftModal && (
                             <AddShift
-                                defaultJob={allJobs[screenIndex]}
+                                defaultJob={allJobs[jobIndex]}
                                 allJobs={allJobs}
                                 closeModal={() => setOpenShiftModal(false)}
                             />
@@ -80,5 +89,18 @@ const styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         width: '100%',
+        justifyContent: 'center',
+    },
+    btnAddShift: {
+        width: 150,
+        height: 100,
+        backgroundColor: '#9BDCFD',
+        borderRadius: 15,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    btnAddTxt: {
+        fontSize: 20,
+        color: '#183B5D',
     },
 });
